@@ -1,0 +1,326 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Higgsfield Genjutsu ile hazırlanmış karakter değiştirme videosu, indirilebilir dosya ve kopyalanabilir prompt.">
+<meta name="theme-color" content="#0a0d0f">
+<meta name="color-scheme" content="dark">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Genjutsu Karakter Değiştirme">
+<meta property="og:description" content="Higgsfield Genjutsu ile hazırlanmış karakter değiştirme videosu ve kopyalanabilir prompt.">
+<meta property="og:image" content="assets/og-image.jpg">
+<meta property="og:locale" content="tr_TR">
+<meta name="twitter:card" content="summary_large_image">
+<title>Genjutsu Karakter Değiştirme</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='15' fill='%230a0d0f'/%3E%3Cpath d='M16 38c8-20 25-22 33-9-8-4-14 0-17 8 7-4 13-3 17 2-11 13-26 11-33-1Z' fill='%23c8ff27'/%3E%3Ccircle cx='36' cy='29' r='4' fill='%230a0d0f'/%3E%3C/svg%3E">
+<style>
+:root{
+  --bg:#090c0e; --surface:#111619; --line:#293235; --text:#f5f7f7; --muted:#9ca9ac;
+  --accent:#c8ff27; --accent-soft:rgba(200,255,39,.12); --danger:#ff6b6b; --max:760px;
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  margin:0; min-height:100vh; overflow-x:hidden;
+  background:radial-gradient(circle at 75% 0%, rgba(200,255,39,.09), transparent 25rem) var(--bg);
+  color:var(--text); font-family:Inter,ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  line-height:1.6;
+}
+img,video{max-width:100%;}
+a{color:inherit;}
+button,a{-webkit-tap-highlight-color:transparent;}
+:focus-visible{outline:2px solid var(--accent); outline-offset:3px; border-radius:4px;}
+.wrap{width:min(var(--max), calc(100% - 32px)); margin-inline:auto;}
+
+header.topbar{
+  display:flex; align-items:center; justify-content:space-between; gap:14px;
+  padding-block:20px; border-bottom:1px solid var(--line);
+}
+.brand{display:flex; align-items:center; gap:10px; text-decoration:none; font-weight:800;}
+.brand-mark{
+  display:grid; place-items:center; width:32px; height:32px; border-radius:9px;
+  color:#091000; background:var(--accent); font-weight:900; flex-shrink:0;
+}
+.ig-button{
+  display:inline-flex; align-items:center; gap:8px; min-height:42px; padding:0 16px;
+  border-radius:11px; background:var(--surface); border:1px solid var(--line);
+  color:var(--text); text-decoration:none; font-weight:700; font-size:.92rem;
+}
+.ig-button svg{width:18px; height:18px; flex-shrink:0;}
+.ig-button:hover{border-color:var(--accent); color:var(--accent);}
+
+main{padding-block:36px 60px;}
+
+.eyebrow{margin:0 0 10px; color:var(--accent); font-size:.76rem; letter-spacing:.14em; font-weight:800;}
+h1{margin:0 0 14px; font-size:clamp(2rem,6vw,2.6rem); line-height:1.08; letter-spacing:-.03em;}
+h1 span{color:var(--accent);}
+.lead{margin:0 0 28px; max-width:56ch; color:#c4cdcf; font-size:1.02rem;}
+
+.card{
+  margin-bottom:26px; padding:14px; border:1px solid var(--line); border-radius:20px;
+  background:rgba(17,22,25,.82);
+}
+.card-head{display:flex; align-items:center; gap:9px; padding:6px 6px 14px; font-size:.9rem; color:#d9dfdf;}
+.dot{width:8px; height:8px; border-radius:50%; background:var(--accent); box-shadow:0 0 12px var(--accent); flex-shrink:0;}
+
+.video-frame{position:relative; aspect-ratio:4/3; overflow:hidden; border-radius:14px; background:#050708;}
+.video-frame video{width:100%; height:100%; display:block; object-fit:contain; background:#050708;}
+.video-loading{position:absolute; inset:0; display:grid; place-items:center; background:#050708; transition:opacity .2s ease;}
+.video-loading.hidden{opacity:0; visibility:hidden;}
+.spinner{width:36px; height:36px; border-radius:50%; border:3px solid rgba(200,255,39,.2); border-top-color:var(--accent); animation:spin .9s linear infinite;}
+@keyframes spin{to{transform:rotate(360deg);}}
+.video-fallback{position:absolute; inset:0; display:none; place-content:center; justify-items:center; padding:24px; text-align:center; background:linear-gradient(145deg,#121719,#070a0b);}
+.video-fallback.show{display:grid;}
+.video-fallback strong{color:var(--danger);}
+.video-fallback p{max-width:320px; margin:8px 0 14px; color:var(--muted);}
+
+.actions{display:flex; flex-wrap:wrap; gap:10px; padding:14px 6px 4px;}
+.btn{
+  min-height:46px; display:inline-flex; align-items:center; justify-content:center; gap:8px;
+  padding:0 18px; border-radius:12px; border:0; font:inherit; font-weight:800; font-size:.94rem;
+  text-decoration:none; cursor:pointer;
+}
+.btn.primary{background:var(--accent); color:#091000;}
+.btn.secondary{background:var(--surface); border:1px solid var(--line); color:var(--text);}
+.btn.primary:hover, .btn.secondary:hover{filter:brightness(1.08);}
+.note{margin:2px 6px 0; color:var(--muted); font-size:.82rem;}
+
+.tabs{display:flex; padding:4px; border:1px solid var(--line); border-radius:11px; background:var(--surface); width:fit-content; margin:0 6px 14px;}
+.tab{min-height:36px; padding:0 15px; border:0; border-radius:8px; color:var(--muted); background:transparent; font:inherit; font-size:.88rem; font-weight:700; cursor:pointer;}
+.tab.active{color:#091000; background:var(--accent);}
+pre{
+  max-height:520px; margin:0 6px; padding:20px; border-radius:14px; overflow:auto;
+  white-space:pre-wrap; overflow-wrap:break-word; background:#080b0d; border:1px solid var(--line);
+  color:#dce4e5; font:.87rem/1.7 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+}
+.prompt-panel[hidden]{display:none;}
+
+footer{
+  display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:14px;
+  padding-block:26px; border-top:1px solid var(--line); color:var(--muted); font-size:.85rem;
+}
+footer a{text-decoration:none; color:var(--text); font-weight:700;}
+footer a:hover{color:var(--accent);}
+
+.toast{
+  position:fixed; left:50%; bottom:22px; z-index:10; max-width:calc(100% - 32px);
+  padding:11px 17px; border-radius:12px; color:#091000; background:var(--accent); font-weight:800;
+  text-align:center; opacity:0; pointer-events:none; transform:translate(-50%,14px); transition:.2s ease;
+}
+.toast.show{opacity:1; transform:translate(-50%,0);}
+
+@media (max-width:480px){
+  .wrap{width:calc(100% - 24px);}
+  header.topbar{padding-block:16px;}
+  .brand span:last-child{display:none;}
+  .actions{flex-direction:column; align-items:stretch;}
+  .btn{width:100%;}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto;}
+  *,*::before,*::after{transition:none !important;}
+  .spinner{animation-duration:1.6s;}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="topbar">
+    <a class="brand" href="#top">
+      <span class="brand-mark">A</span>
+      <span>Ashvibe</span>
+    </a>
+    <!-- Instagram adresini değiştirmek istersen: aşağıdaki href'i güncelle. -->
+    <a class="ig-button" href="https://instagram.com/ashvibe" target="_blank" rel="noopener noreferrer" aria-label="Instagram'da takip et">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg>
+      Instagram'da takip et
+    </a>
+  </header>
+
+  <main id="top">
+    <p class="eyebrow">HIGGSFIELD GENJUTSU</p>
+    <h1>Çocukluk fotoğrafımdaki<br>halim, <span>bir sahnenin merkezinde.</span></h1>
+    <p class="lead">Higgsfield Genjutsu ile hazırladığım karakter değiştirme videosu ve kullandığım prompt aşağıda. Videoyu indirebilir, promptu kopyalayabilir veya TXT olarak alabilirsin.</p>
+
+    <section class="card" aria-label="Final video">
+      <div class="card-head"><span class="dot"></span> Ortaya çıkan sonuç</div>
+      <div class="video-frame">
+        <video id="demoVideo" controls playsinline muted preload="metadata" poster="assets/poster.jpg" aria-label="Genjutsu ile hazırlanmış final video">
+          <source src="assets/final-video.mp4" type="video/mp4">
+          <p>Tarayıcınız video oynatmayı desteklemiyor. <a href="assets/final-video.mp4" download>Videoyu indirmek için tıklayın.</a></p>
+        </video>
+        <div class="video-loading" id="videoLoading" aria-hidden="true"><span class="spinner"></span></div>
+        <div class="video-fallback" id="videoFallback" role="status">
+          <strong>Video şu anda oynatılamıyor</strong>
+          <p>Bağlantı veya tarayıcı desteği sorun olabilir.</p>
+        </div>
+      </div>
+      <div class="actions">
+        <a class="btn primary" href="assets/final-video.mp4" download="genjutsu-final-video.mp4">Videoyu İndir</a>
+      </div>
+      <p class="note">Ortadaki bebek, kendi çocukluk fotoğrafımdan üretildi. Ses kapalı başlar.</p>
+    </section>
+
+    <section class="card" aria-label="Prompt">
+      <div class="card-head"><span class="dot"></span> Kullandığım prompt</div>
+      <div class="tabs" role="tablist" aria-label="Prompt dili">
+        <button class="tab active" type="button" role="tab" aria-selected="true" data-tab="tr">Türkçe</button>
+        <button class="tab" type="button" role="tab" aria-selected="false" data-tab="en">English</button>
+      </div>
+
+      <div class="prompt-panel" id="panel-tr" role="tabpanel">
+        <pre id="promptTr">KARAKTER DEĞİŞTİRME — ÖNCELİK SIRASINA KESİNLİKLE UYUN
+
+1. MERKEZ KARAKTER
+Kaynak videoda grubun tam merkezindeki tek ana kişiyi yalnızca @[Image 1](image_1)'de gösterilen referans bebekle değiştirin. Image 1, merkez karakterin tek kimlik, yüz, saç, ten rengi, doğal bebek vücut oranı ve kıyafet referansıdır. Bütün ayrıntıları her karede sabit tutun. Sahnede yalnızca bir bebek bulunsun; çevredeki hiçbir karakter için bebek kimliğini kullanmayın.
+
+2. KIYAFET VE NESNE KİLİDİ
+Bebek yalnızca Image 1'deki kıyafeti giysin; renklerini, desenlerini, ayakkabılarını ve aksesuarlarını değiştirmeyin. Sigarayı, dumanı ve sigarayla ilişkili bütün nesneleri tamamen kaldırın. Yerine gerçekçi boyutlarda, pipetli bir çikolatalı süt kutusu koyun. Kaynak kişide sigara ağza yaklaştığında, bebek kutuyu doğal biçimde kaldırıp pipetten içsin. El, parmak, kutu, pipet ve ağız arasındaki temas fiziksel olarak doğru olsun.
+
+3. BAKIŞ, GÖRÜNÜRLÜK VE DOĞALLIK
+Kaynak kişi uzun süre aşağı baksa bile bu hareketi bebeğe aktarmayın; bebek çenesini doğal konumda tutarak kamerayla sakin, özgüvenli ve hafif keyifli bir göz teması kursun. Bebek küçük, çocuksu ve doğal baş ve göz hareketleri yapabilir, doğal biçimde göz kırpabilir; ama yüzü donuklaşmasın veya yapay, sabit bir bakışa dönüşmesin. Bebek video boyunca merkezde, açıkça görünür ve ana görsel odak olarak kalsın. Hiçbir çevre karakteri bebeğin yüzünü, üst gövdesini, ellerini veya süt kutusunu kapatmasın.
+
+4. ÇEVRE KARAKTERLERİ
+Merkezdeki tek bebek dışındaki bütün kişileri yalnızca @[Image 2](image_2) ve @[Image 3](image_3)'teki özgün 3D animasyon karakterleriyle değiştirin. Ön, orta ve arka sıralarda gerçek kişi, ek bebek veya referanslarda bulunmayan bir karakter bırakmayın.
+
+5. ÇEŞİTLİLİK, YAŞ VE GÖZLÜK
+Image 2 ve Image 3'teki bütün farklı tasarımları kalabalığa yaklaşık eşit ve dengeli dağıtın. Kalabalığın tamamını aynı karaktere dönüştürmeyin; özdeş kopyaları yan yana koymayın. Çevre karakterleri uzun boylu, yetişkin görünümlü ve yetişkin vücut oranlarına sahip olsun. Hepsi büyük, belirgin ve video boyunca kaybolmayan, titremeyen veya değişmeyen gözlük ya da güneş gözlüğü taksın. Uzun karakterler bebeğin biraz arkasında ve iki yanında kalsın; bebeğin önünü asla kapatmasın.
+
+6. KİMLİK VE HAREKET
+Her karakterin yüzünü, saçını, kıyafetini, rengini, vücut yapısını ve gözlüğünü kendi referansıyla kare boyunca tutarlı koruyun. Yüz aktarımı, kimlik kayması, şekil değiştirme veya karakter birleşmesi olmasın. Çevre karakterleri yerini aldıkları kişilerin hareketini, hızını ve zamanlamasını izlesin. Merkez karakterde yalnızca sigara içme hareketini süt içmeye, sürekli aşağı bakışı ise kameraya doğal göz temasına dönüştürün.
+
+7. SAHNE KORUMASI
+Kaynak videonun kişi sayısını, genel koreografisini, zamanlamasını, kamera açısını, kamera hareketini, kadrajını, perspektifini, arka planını, zeminini, ışığını, gölgelerini, çözünürlüğünü, en-boy oranını, kare hızını ve süresini koruyun. Görüntüyü kırpmayın, yakınlaştırmayın veya hızını değiştirmeyin. Yeni karakterleri doğru ölçek, derinlik, zemin teması ve temas gölgeleriyle sahneye doğal biçimde entegre edin.
+
+KAÇININ: Ek bebekler; gerçek kişiler; aynı karakterden oluşan kalabalık; gözlüksüz çevre karakterleri; bebeğin uzun süre aşağı bakması veya önünün kapanması; farklı kıyafet; sigara ve duman; rastgele karakterler; kimlik kayması; titreyen gözlükler; bozuk yüzler ve eller; eksik veya çoğaltılmış uzuvlar; fazladan veya eksik kişiler; yüzen karakterler; arka plan değişikliği; genel çizgi film filtresi; donuk veya sabit bakış; yazı; altyazı; logo; filigran; yakınlaştırma; kırpma; ağır çekim veya hızlandırma.
+
+NİHAİ ÇIKTI: Image 1'deki tek ve tutarlı bebek merkezde, yalnızca Image 1'deki kıyafetle, kameraya doğal ve sakin biçimde bakarak pipetli çikolatalı süt içsin. Diğer bütün kişiler yalnızca Image 2 ve Image 3'teki çeşitli, yetişkin oranlı, gözlüklü 3D animasyon karakterlerine dönüşsün; hiçbiri bebeğin önünü kapatmasın. Kaynak videonun çözünürlüğü, en-boy oranı, kare hızı ve süresi korunsun.</pre>
+        <div class="actions">
+          <button class="btn primary" type="button" id="copyTr">Promptu Kopyala</button>
+          <a class="btn secondary" href="prompts/prompt-tr.txt" download="prompt-tr.txt">TXT Olarak İndir</a>
+        </div>
+      </div>
+
+      <div class="prompt-panel" id="panel-en" role="tabpanel" hidden>
+        <pre id="promptEn">CHARACTER REPLACEMENT — FOLLOW THIS PRIORITY ORDER STRICTLY
+
+1. CENTRAL CHARACTER
+Replace only the single main person at the exact center of the source video with the reference baby shown in @[Image 1](image_1). Image 1 is the only reference for the central character's identity, face, hair, skin tone, natural baby proportions and clothing. Keep every detail consistent in every frame. There must be exactly one baby in the scene; never use the baby's identity for any surrounding character.
+
+2. CLOTHING AND OBJECT LOCK
+The baby must wear only the clothing shown in Image 1 — do not change its colors, patterns, shoes or accessories. Completely remove the cigarette, smoke and all smoking-related objects. Replace them with a realistically sized chocolate milk box with a straw. Whenever the original person raises the cigarette toward the mouth, the baby naturally raises the box and drinks through the straw. Keep physically correct contact between the hand, fingers, box, straw and mouth.
+
+3. GAZE, VISIBILITY AND NATURALNESS
+Even when the original person looks down for long periods, do not transfer that action to the baby; keep the baby's chin naturally positioned and maintain calm, confident, slightly playful eye contact with the camera. The baby may make small, natural, childlike head and eye movements and blink naturally, but the face must never freeze into an unnatural, fixed stare. Keep the baby clearly visible at the center as the main visual focus throughout the video. No surrounding character may cover the baby's face, upper body, hands or milk box.
+
+4. SURROUNDING CHARACTERS
+Replace every other visible person with original 3D animated characters derived exclusively from @[Image 2](image_2) and @[Image 3](image_3). Leave no real person, additional baby, or character absent from the references in the foreground, middle rows or background.
+
+5. VARIETY, AGE AND GLASSES
+Distribute all visibly different designs from Image 2 and Image 3 approximately equally throughout the crowd. Do not turn the entire crowd into one identical character or place identical copies next to each other. All surrounding characters must look tall and adult-proportioned. Every surrounding character must wear large, clearly visible glasses or sunglasses that never disappear, flicker or change throughout the video. Keep tall characters slightly behind and to the sides of the baby so they never block the central character.
+
+6. IDENTITY AND MOTION
+Keep each character's face, hair, clothing, colors, body design and glasses consistent with its own reference across every frame. No face swaps, identity drift, morphing or character fusion. Surrounding characters follow the movement, speed and timing of the people they replace. For the central character, only convert the smoking action into drinking milk and the prolonged downward gaze into natural eye contact with the camera.
+
+7. SCENE PRESERVATION
+Preserve the source video's person count, overall choreography, timing, camera angle, camera movement, framing, perspective, background, floor, lighting, shadows, resolution, aspect ratio, frame rate and duration. Do not crop, zoom or change speed. Integrate the new characters naturally with accurate scale, depth, ground contact and contact shadows.
+
+AVOID: Extra babies; remaining real people; an identical cloned crowd; surrounding characters without glasses; the baby looking down for long periods or becoming obstructed; different clothing; cigarettes or smoke; random characters; identity drift; flickering glasses; distorted faces or hands; missing or duplicated limbs; extra or missing people; floating characters; background changes; a global cartoon filter; a frozen or fixed stare; text; subtitles; logos; watermarks; zoom; crop; slow motion or speed changes.
+
+FINAL OUTPUT: Exactly one consistent baby from Image 1 stays at the center, wearing only the Image 1 outfit, looking at the camera naturally and calmly while drinking chocolate milk through a straw. Every other person becomes a varied, adult-proportioned 3D animated character based only on Image 2 and Image 3, all wearing glasses and never blocking the baby. The source video's resolution, aspect ratio, frame rate and duration are preserved.</pre>
+        <div class="actions">
+          <button class="btn primary" type="button" id="copyEn">Copy Prompt</button>
+          <a class="btn secondary" href="prompts/prompt-en.txt" download="prompt-en.txt">Download as TXT</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <span>Bağımsız bir çalışma notudur; Higgsfield ile bağlantılı veya sponsorlu değildir.</span>
+    <a href="https://instagram.com/ashvibe" target="_blank" rel="noopener noreferrer">Instagram'da @ashvibe</a>
+  </footer>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite">Prompt kopyalandı</div>
+
+<script>
+// ---- prompt tabs ----
+var tabs = document.querySelectorAll('.tab');
+var panels = { tr: document.getElementById('panel-tr'), en: document.getElementById('panel-en') };
+tabs.forEach(function (tab) {
+  tab.addEventListener('click', function () {
+    var selected = tab.dataset.tab;
+    tabs.forEach(function (item) {
+      var active = item === tab;
+      item.classList.toggle('active', active);
+      item.setAttribute('aria-selected', String(active));
+    });
+    Object.keys(panels).forEach(function (key) {
+      panels[key].hidden = key !== selected;
+    });
+  });
+});
+
+// ---- copy to clipboard (with fallbacks) ----
+var toast = document.getElementById('toast');
+var toastTimer;
+function showToast(msg) {
+  toast.textContent = msg;
+  toast.classList.add('show');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(function () { toast.classList.remove('show'); }, 1800);
+}
+function copyPromptText(preEl, successMsg, failMsg) {
+  var text = preEl.textContent.trim();
+  if (navigator.clipboard && window.isSecureContext) {
+    navigator.clipboard.writeText(text).then(function () {
+      showToast(successMsg);
+    }).catch(function () {
+      legacyCopy(preEl, successMsg, failMsg);
+    });
+  } else {
+    legacyCopy(preEl, successMsg, failMsg);
+  }
+}
+function legacyCopy(preEl, successMsg, failMsg) {
+  try {
+    var range = document.createRange();
+    range.selectNodeContents(preEl);
+    var selection = window.getSelection();
+    selection.removeAllRanges();
+    selection.addRange(range);
+    var ok = document.execCommand('copy');
+    selection.removeAllRanges();
+    showToast(ok ? successMsg : failMsg);
+  } catch (err) {
+    showToast(failMsg);
+  }
+}
+document.getElementById('copyTr').addEventListener('click', function () {
+  copyPromptText(document.getElementById('promptTr'), 'Prompt kopyalandı', 'Kopyalama başarısız — metni elle seç.');
+});
+document.getElementById('copyEn').addEventListener('click', function () {
+  copyPromptText(document.getElementById('promptEn'), 'Prompt copied', 'Copy failed — select the text manually.');
+});
+
+// ---- video loading / fallback states ----
+var video = document.getElementById('demoVideo');
+var loading = document.getElementById('videoLoading');
+var fallback = document.getElementById('videoFallback');
+function hideLoading() { loading.classList.add('hidden'); }
+function showFallback() { hideLoading(); fallback.classList.add('show'); }
+if (video) {
+  video.addEventListener('loadedmetadata', hideLoading);
+  video.addEventListener('canplay', hideLoading);
+  video.addEventListener('error', showFallback);
+  if (video.readyState >= 1) hideLoading();
+  setTimeout(function () {
+    if (video.readyState === 0) showFallback();
+  }, 10000);
+}
+</script>
+</body>
+</html>

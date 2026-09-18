@@ -1,0 +1,26 @@
+CHARACTER REPLACEMENT — FOLLOW THIS PRIORITY ORDER STRICTLY
+
+1. CENTRAL CHARACTER
+Replace only the single main person at the exact center of the source video with the reference baby shown in @[Image 1](image_1). Image 1 is the only reference for the central character's identity, face, hair, skin tone, natural baby proportions and clothing. Keep every detail consistent in every frame. There must be exactly one baby in the scene; never use the baby's identity for any surrounding character.
+
+2. CLOTHING AND OBJECT LOCK
+The baby must wear only the clothing shown in Image 1 — do not change its colors, patterns, shoes or accessories. Completely remove the cigarette, smoke and all smoking-related objects. Replace them with a realistically sized chocolate milk box with a straw. Whenever the original person raises the cigarette toward the mouth, the baby naturally raises the box and drinks through the straw. Keep physically correct contact between the hand, fingers, box, straw and mouth.
+
+3. GAZE, VISIBILITY AND NATURALNESS
+Even when the original person looks down for long periods, do not transfer that action to the baby; keep the baby's chin naturally positioned and maintain calm, confident, slightly playful eye contact with the camera. The baby may make small, natural, childlike head and eye movements and blink naturally, but the face must never freeze into an unnatural, fixed stare. Keep the baby clearly visible at the center as the main visual focus throughout the video. No surrounding character may cover the baby's face, upper body, hands or milk box.
+
+4. SURROUNDING CHARACTERS
+Replace every other visible person with original 3D animated characters derived exclusively from @[Image 2](image_2) and @[Image 3](image_3). Leave no real person, additional baby, or character absent from the references in the foreground, middle rows or background.
+
+5. VARIETY, AGE AND GLASSES
+Distribute all visibly different designs from Image 2 and Image 3 approximately equally throughout the crowd. Do not turn the entire crowd into one identical character or place identical copies next to each other. All surrounding characters must look tall and adult-proportioned. Every surrounding character must wear large, clearly visible glasses or sunglasses that never disappear, flicker or change throughout the video. Keep tall characters slightly behind and to the sides of the baby so they never block the central character.
+
+6. IDENTITY AND MOTION
+Keep each character's face, hair, clothing, colors, body design and glasses consistent with its own reference across every frame. No face swaps, identity drift, morphing or character fusion. Surrounding characters follow the movement, speed and timing of the people they replace. For the central character, only convert the smoking action into drinking milk and the prolonged downward gaze into natural eye contact with the camera.
+
+7. SCENE PRESERVATION
+Preserve the source video's person count, overall choreography, timing, camera angle, camera movement, framing, perspective, background, floor, lighting, shadows, resolution, aspect ratio, frame rate and duration. Do not crop, zoom or change speed. Integrate the new characters naturally with accurate scale, depth, ground contact and contact shadows.
+
+AVOID: Extra babies; remaining real people; an identical cloned crowd; surrounding characters without glasses; the baby looking down for long periods or becoming obstructed; different clothing; cigarettes or smoke; random characters; identity drift; flickering glasses; distorted faces or hands; missing or duplicated limbs; extra or missing people; floating characters; background changes; a global cartoon filter; a frozen or fixed stare; text; subtitles; logos; watermarks; zoom; crop; slow motion or speed changes.
+
+FINAL OUTPUT: Exactly one consistent baby from Image 1 stays at the center, wearing only the Image 1 outfit, looking at the camera naturally and calmly while drinking chocolate milk through a straw. Every other person becomes a varied, adult-proportioned 3D animated character based only on Image 2 and Image 3, all wearing glasses and never blocking the baby. The source video's resolution, aspect ratio, frame rate and duration are preserved.
