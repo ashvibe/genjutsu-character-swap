@@ -32,7 +32,8 @@ eder. **Sadece `index.html` dosyasını tek başına açarsan "dosya bulunamadı
 hatası alırsın.** Bu paketi bir klasöre çıkarttığında hepsini olduğu gibi
 bırak, hiçbirini taşıma veya silme.
 
-![Uploading image.png…]()
+<img width="883" height="897" alt="image" src="https://github.com/user-attachments/assets/783ced0c-f591-415d-bf0d-4e71f08dc0f2" />
+
 
 ## 1. Yerelde önizleme
 
