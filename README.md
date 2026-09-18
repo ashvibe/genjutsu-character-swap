@@ -1,4 +1,4 @@
-# Genjutsu Character Swap — GitHub Pages Paketi
+<img width="1102" height="643" alt="image" src="https://github.com/user-attachments/assets/88c5363d-eb76-4b4c-a74c-788959b708cb" /># Genjutsu Character Swap — GitHub Pages Paketi
 
 Basit, tek sayfalık bir site: final videoyu gösterir, indirme butonu verir,
 kullanılan promptu gösterir ve kopyalama/indirme butonları sunar. Build
@@ -31,6 +31,8 @@ duyar — video ve TXT indirme bağlantıları bu klasörlerdeki dosyalara işar
 eder. **Sadece `index.html` dosyasını tek başına açarsan "dosya bulunamadı"
 hatası alırsın.** Bu paketi bir klasöre çıkarttığında hepsini olduğu gibi
 bırak, hiçbirini taşıma veya silme.
+
+![Uploading image.png…]()
 
 ## 1. Yerelde önizleme
 
